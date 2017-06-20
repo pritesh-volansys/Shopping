@@ -12,7 +12,7 @@ import { RecipeService } from "app/recipes/recipe-list/recipe.service";
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
-  
+
   constructor(private recipeService: RecipeService,
               private route: ActivatedRoute,
               private router: Router) {
@@ -29,13 +29,17 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onAddToShoppingList() {
-    this.recipeService.addIngreDientToShoppingList(this.recipe.ingredients);
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 
-    onEditRecipe() {
+  onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.route});
-    //this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
 
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
+  }
 
 }
