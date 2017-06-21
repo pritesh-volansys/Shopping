@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from "app/recipes/recipe-list/recipe.service";
 
+
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
@@ -63,6 +64,10 @@ export class RecipeEditComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
+  getControls() {
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+  }
+
   private initForm() {
     let recipeName = '';
     let recipeImagePath = '';
@@ -98,5 +103,3 @@ export class RecipeEditComponent implements OnInit {
   }
 
 }
-
-

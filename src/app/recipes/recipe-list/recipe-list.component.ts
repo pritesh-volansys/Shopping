@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from "app/recipes/recipe-list/recipe.service";
 
+
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -37,3 +38,4 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 }
+
